@@ -26,7 +26,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: loranger.debian-kibana, kibana.version: 3.1.1, kibana.url : https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.zip, kibana.destination: /var/www }
+         - { role: cowops.debian-kibana, kibana.version: 3.1.1, kibana.url : https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.zip, kibana.destination: /var/www }
 
 Tasks
 -----
