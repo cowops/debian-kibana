@@ -4,9 +4,12 @@
   register: kibanapath
 
 - name: install required packages
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - elasticsearch
+  apt:
+    name: {{ packages }}
+    state: latest
+  vars:
+    packages:
+      - elasticsearch
 
 - name: download kibana archive
   get_url: url={{ kibana.url }} dest=/tmp/kibana-{{ kibana.version }}.zip
@@ -15,7 +18,7 @@
 - name: extract kibana archive
   unarchive: src=/tmp/kibana-{{ kibana.version }}.zip dest={{ kibana.destination }} copy=no
   when: kibanapath.stat.isdir is not defined
-  
+
 - name: clean temporary files
   command: "{{ item }}"
   with_items:
