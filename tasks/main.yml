@@ -5,7 +5,7 @@
 
 - name: install required packages
   apt:
-    name: {{ packages }}
+    name: "{{ packages }}"
     state: latest
   vars:
     packages:
